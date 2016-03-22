@@ -1,0 +1,14 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/NPFaq.Common;component/Themes/Common.xaml"/>
+        <ResourceDictionary Source="/NPFaq.Common;component/Themes/AddableListBox.xaml"/>
+        <ResourceDictionary Source="/NPFaq.Common;component/Themes/GalleryControl.xaml"/>
+        <ResourceDictionary Source="/NPFaq.Common;component/Themes/UploadControl.xaml"/>
+        <ResourceDictionary Source="/NPFaq.Common;component/Themes/ImageButton.xaml"/>
+        <ResourceDictionary Source="/NPFaq.Common;component/Themes/WaterMarkTextBox.xaml"/>
+        <ResourceDictionary Source="/NPFaq.Common;component/Themes/BaseWindow.xaml"/>
+        <ResourceDictionary Source="/NPFaq.Common;component/Themes/DialogWindow.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

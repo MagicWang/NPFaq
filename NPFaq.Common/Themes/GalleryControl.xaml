@@ -1,0 +1,67 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"   
+    xmlns:local="clr-namespace:NPFaq.Common.Controls">
+    <Style TargetType="local:GalleryControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:GalleryControl">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition MinHeight="60" MaxHeight="600"/>
+                                <RowDefinition Height="90"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="45"/>
+                                <ColumnDefinition MinWidth="90" MaxWidth="900"/>
+                                <ColumnDefinition Width="45"/>
+                            </Grid.ColumnDefinitions>
+                            <Path Margin="5" Fill="Black" HorizontalAlignment="Left" VerticalAlignment="Center" Data="M3.0018948,0.048563851 L25.001895,0.048563851 L25.001895,3.0485639 L3.0018948,3.0485639 z M3,4.1359031E-24 L3,25 L5.3290705E-15,25 L-1.323489E-23,6.6613381E-16 z" RenderTransformOrigin="0.5,0.5" Height="25" Stretch="Fill" Width="25">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="-45"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                            <Rectangle x:Name="LeftArrow" Fill="Transparent"></Rectangle>
+
+                            <Image x:Name="Image" Grid.Column="1" Margin="5" Source="{Binding ElementName=GalleryLB,Path=SelectedItem}"></Image>
+
+                            <Path Margin="5" Fill="Black" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Data="M3.0018948,0.048563851 L25.001895,0.048563851 L25.001895,3.0485639 L3.0018948,3.0485639 z M3,4.1359031E-24 L3,25 L5.3290705E-15,25 L-1.323489E-23,6.6613381E-16 z" RenderTransformOrigin="0.5,0.5" Height="25" Stretch="Fill" Width="25">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="135"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                            <Rectangle x:Name="RightArrow" Fill="Transparent" Grid.Column="2"></Rectangle>
+
+                            <ListBox x:Name="GalleryLB" Grid.Row="1" Grid.ColumnSpan="3" ItemsSource="{TemplateBinding ItemsSource}">
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal"></StackPanel>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding}" Width="80" Height="80"></Image>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

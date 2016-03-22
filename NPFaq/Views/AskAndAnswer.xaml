@@ -1,0 +1,60 @@
+﻿<np:BaseWindow x:Class="NPFaq.Views.AskAndAnswer" 
+          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+          xmlns:deco="http://schemas.devexpress.com/winfx/2008/xaml/controls"
+          xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+          xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+          xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+          xmlns:np="http://schemas.netposa.com/sl/2015/xaml"
+          xmlns:vm="clr-namespace:NPFaq.ViewModels"
+          xmlns:local="clr-namespace:NPFaq"
+          mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="600" Title="提交问答">
+    <np:BaseWindow.DataContext>
+        <vm:AskAndAnswerViewModel/>
+    </np:BaseWindow.DataContext>
+    <i:Interaction.Triggers>
+        <np:InteractionRequestTrigger SourceObject="{Binding CloseRequest}" Raised="Close_Raised"/>
+    </i:Interaction.Triggers>
+    <Grid x:Name="LayoutRoot">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="365"/>
+            <ColumnDefinition Width="65"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="180"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="{Binding Title}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Grid.ColumnSpan="3"/>
+        <TextBlock Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,21,4,21" Text="问题:"/>
+        <TextBox x:Name="QuestionTB" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Width="330" Margin="5,5,0,5" AcceptsReturn="True" Text="{Binding Question,Mode=TwoWay,ValidatesOnDataErrors=True}"/>
+        <TextBlock Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,16,4,16" Text="关键字:"/>
+        <TextBox x:Name="KeyWordTB" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Width="330" Margin="5,5,0,5" AcceptsReturn="True" Text="{Binding KeyWord,Mode=TwoWay,ValidatesOnDataErrors=True}"/>
+        <TextBlock Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,16,4,16" Text="类别:"/>
+        <ComboBox x:Name="CategoryCB" Grid.Row="3" Grid.Column="1" Width="330" Height="28" Margin="5,11,0,11" SelectedItem="{Binding SelectedCategory,Mode=TwoWay,ValidatesOnDataErrors=True}" DisplayMemberPath="CategoryName" ItemsSource="{Binding Categorys}" HorizontalAlignment="Left" VerticalAlignment="Center"></ComboBox>
+        <Button Content="管理" Grid.Row="3" Grid.Column="2" Height="28" Margin="5" Click="Button_Click"></Button>
+        <!--<TextBox x:Name="CategoryTB" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" MinWidth="300" Margin="5,5,0,5" AcceptsReturn="True" Text="{Binding Category,Mode=TwoWay,ValidatesOnDataErrors=True}"/>-->
+        <TextBlock Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,81,4,81" Text="您的回答:"/>
+        <np:AddableListBox Grid.Row="4" Grid.Column="1" ItemsSource="{Binding Answers}" Margin="5" Grid.ColumnSpan="2">
+            <np:AddableListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBox Text="{Binding Answer,Mode=TwoWay}" Width="350" TextWrapping="Wrap"/>
+                </DataTemplate>
+            </np:AddableListBox.ItemTemplate>
+        </np:AddableListBox>
+        <TextBlock Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,57,4,56" Text="附件:"/>
+        <np:UploadControl Grid.Row="5" Grid.Column="1" ItemsSource="{Binding Attachs}" Margin="5" Grid.ColumnSpan="2"/>
+        <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,4" Grid.ColumnSpan="2">
+            <Button Content="保存" Margin="10" Width="75" Command="{Binding SubmitCommand}"/>
+            <Button Content="取消" Margin="10" Width="75" Click="Cancel_Click"/>
+        </StackPanel>
+        <toolkit:BusyIndicator IsBusy="{Binding IsBusy}" Grid.RowSpan="7" Grid.ColumnSpan="3" BusyContent="上传文件中" Margin="0,-10,0,10"></toolkit:BusyIndicator>
+    </Grid>
+</np:BaseWindow>

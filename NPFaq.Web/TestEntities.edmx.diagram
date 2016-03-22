@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a8abde0a594544128dd660014c2aadff" Name="关系图1">
+        <EntityTypeShape EntityType="testModel.faq_user" Width="1.5" PointX="6.25" PointY="0.5" />
+        <EntityTypeShape EntityType="testModel.faq_answer" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="testModel.faq_attach" Width="1.5" PointX="2.625" PointY="0.5" />
+        <EntityTypeShape EntityType="testModel.faq_question" Width="1.5" PointX="1.625" PointY="3.75" />
+        <AssociationConnector Association="testModel.answer_qid" />
+        <AssociationConnector Association="testModel.attach_qid" />
+        <EntityTypeShape EntityType="testModel.faq_category" Width="1.5" PointX="4.5" PointY="0.5" />
+        <AssociationConnector Association="testModel.fk_categoryid" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

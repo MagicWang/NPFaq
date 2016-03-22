@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/NPFaq.Web.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/NPFaq.Web.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:11804/TestService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/NPFaq.Web" />
+  <xs:complexType name="ArrayOfAttach">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Attach" nillable="true" type="tns:Attach" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAttach" nillable="true" type="tns:ArrayOfAttach" />
+  <xs:complexType name="Attach">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/NPFaq.Web" base="q1:faq_attach">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Size" type="xs:long" />
+          <xs:element minOccurs="0" name="Thumbnail" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="URL" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Attach" nillable="true" type="tns:Attach" />
+</xs:schema>

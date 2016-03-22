@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="TestService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:11804/TestService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:11804/TestService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:11804/TestService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/NPFaq.Web" />
+      <xsd:import schemaLocation="http://localhost:11804/TestService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/NPFaq.Web.Models" />
+      <xsd:import schemaLocation="http://localhost:11804/TestService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ITestService_GetAllCategorys_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCategorys" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_GetAllCategorys_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCategorysResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_AddCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCategory" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_AddCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_DeleteCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCategory" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_DeleteCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_GetCountOfCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountOfCategory" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_GetCountOfCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountOfCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_GetPagedQuestions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPagedQuestions" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_GetPagedQuestions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPagedQuestionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_GetAnswersByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnswersByID" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_GetAnswersByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnswersByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_SearchFaqs_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchFaqs" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_SearchFaqs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchFaqsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_GetAllQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllQuestion" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_GetAllQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_GetQuestionByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestionByID" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_GetQuestionByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetQuestionByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_GetAttachsByQID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAttachsByQID" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_GetAttachsByQID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAttachsByQIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_GetImagesByQuestionID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetImagesByQuestionID" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_GetImagesByQuestionID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetImagesByQuestionIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_AddOrUpdateQuestion_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateQuestion" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_AddOrUpdateQuestion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateQuestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_AddAnswer_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAnswer" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_AddAnswer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAnswerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_AddFaq_Attachs_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFaq_Attachs" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_AddFaq_Attachs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFaq_AttachsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_DeleteFaqByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFaqByID" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_DeleteFaqByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFaqByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_GetAllUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsers" />
+  </wsdl:message>
+  <wsdl:message name="ITestService_GetAllUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsersResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ITestService">
+    <wsdl:operation name="GetAllCategorys">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/GetAllCategorys" message="tns:ITestService_GetAllCategorys_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/GetAllCategorysResponse" message="tns:ITestService_GetAllCategorys_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/AddCategory" message="tns:ITestService_AddCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/AddCategoryResponse" message="tns:ITestService_AddCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/DeleteCategory" message="tns:ITestService_DeleteCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/DeleteCategoryResponse" message="tns:ITestService_DeleteCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountOfCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/GetCountOfCategory" message="tns:ITestService_GetCountOfCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/GetCountOfCategoryResponse" message="tns:ITestService_GetCountOfCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPagedQuestions">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/GetPagedQuestions" message="tns:ITestService_GetPagedQuestions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/GetPagedQuestionsResponse" message="tns:ITestService_GetPagedQuestions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnswersByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/GetAnswersByID" message="tns:ITestService_GetAnswersByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/GetAnswersByIDResponse" message="tns:ITestService_GetAnswersByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchFaqs">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/SearchFaqs" message="tns:ITestService_SearchFaqs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/SearchFaqsResponse" message="tns:ITestService_SearchFaqs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/GetAllQuestion" message="tns:ITestService_GetAllQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/GetAllQuestionResponse" message="tns:ITestService_GetAllQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestionByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/GetQuestionByID" message="tns:ITestService_GetQuestionByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/GetQuestionByIDResponse" message="tns:ITestService_GetQuestionByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttachsByQID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/GetAttachsByQID" message="tns:ITestService_GetAttachsByQID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/GetAttachsByQIDResponse" message="tns:ITestService_GetAttachsByQID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImagesByQuestionID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/GetImagesByQuestionID" message="tns:ITestService_GetImagesByQuestionID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/GetImagesByQuestionIDResponse" message="tns:ITestService_GetImagesByQuestionID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateQuestion">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/AddOrUpdateQuestion" message="tns:ITestService_AddOrUpdateQuestion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/AddOrUpdateQuestionResponse" message="tns:ITestService_AddOrUpdateQuestion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAnswer">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/AddAnswer" message="tns:ITestService_AddAnswer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/AddAnswerResponse" message="tns:ITestService_AddAnswer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFaq_Attachs">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/AddFaq_Attachs" message="tns:ITestService_AddFaq_Attachs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/AddFaq_AttachsResponse" message="tns:ITestService_AddFaq_Attachs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFaqByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/DeleteFaqByID" message="tns:ITestService_DeleteFaqByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/DeleteFaqByIDResponse" message="tns:ITestService_DeleteFaqByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/Login" message="tns:ITestService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/LoginResponse" message="tns:ITestService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestService/GetAllUsers" message="tns:ITestService_GetAllUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestService/GetAllUsersResponse" message="tns:ITestService_GetAllUsers_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ITestService" type="tns:ITestService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllCategorys">
+      <soap:operation soapAction="http://tempuri.org/ITestService/GetAllCategorys" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCategory">
+      <soap:operation soapAction="http://tempuri.org/ITestService/AddCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCategory">
+      <soap:operation soapAction="http://tempuri.org/ITestService/DeleteCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountOfCategory">
+      <soap:operation soapAction="http://tempuri.org/ITestService/GetCountOfCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPagedQuestions">
+      <soap:operation soapAction="http://tempuri.org/ITestService/GetPagedQuestions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnswersByID">
+      <soap:operation soapAction="http://tempuri.org/ITestService/GetAnswersByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchFaqs">
+      <soap:operation soapAction="http://tempuri.org/ITestService/SearchFaqs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllQuestion">
+      <soap:operation soapAction="http://tempuri.org/ITestService/GetAllQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuestionByID">
+      <soap:operation soapAction="http://tempuri.org/ITestService/GetQuestionByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttachsByQID">
+      <soap:operation soapAction="http://tempuri.org/ITestService/GetAttachsByQID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImagesByQuestionID">
+      <soap:operation soapAction="http://tempuri.org/ITestService/GetImagesByQuestionID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateQuestion">
+      <soap:operation soapAction="http://tempuri.org/ITestService/AddOrUpdateQuestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAnswer">
+      <soap:operation soapAction="http://tempuri.org/ITestService/AddAnswer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFaq_Attachs">
+      <soap:operation soapAction="http://tempuri.org/ITestService/AddFaq_Attachs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFaqByID">
+      <soap:operation soapAction="http://tempuri.org/ITestService/DeleteFaqByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/ITestService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <soap:operation soapAction="http://tempuri.org/ITestService/GetAllUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TestService">
+    <wsdl:port name="BasicHttpBinding_ITestService" binding="tns:BasicHttpBinding_ITestService">
+      <soap:address location="http://localhost:11804/TestService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

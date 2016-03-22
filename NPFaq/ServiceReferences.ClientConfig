@@ -1,0 +1,17 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_ITestService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="../TestService.svc" binding="basicHttpBinding"
+                bindingConfiguration="BasicHttpBinding_ITestService" contract="TestServiceReference.ITestService"
+                name="BasicHttpBinding_ITestService" />
+        </client>
+    </system.serviceModel>
+</configuration>
