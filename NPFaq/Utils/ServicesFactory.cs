@@ -17,5 +17,9 @@ namespace NPFaq.Utils
         {
             return new TestServiceReference.TestServiceClient();
         }
+        public static MatchServiceReference.MatchServiceClient CreateMatchService()
+        {
+            return new MatchServiceReference.MatchServiceClient();
+        }
     }
 }

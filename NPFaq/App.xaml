@@ -19,6 +19,8 @@
             <np:IndexConverter x:Key="IndexConverter"/>
             <np:CollectionToVisibilityConverter x:Key="CollectionToVisibilityConverter"/>
             <localc:BoolToMarginConverter x:Key="BoolToMarginConverter"/>
+            <localc:FuncVisibleConverter x:Key="FuncVisibleConverter"/>
+            <localc:RoleToDescriptionConverter x:Key="RoleToDescriptionConverter"/>
         </ResourceDictionary>
     </Application.Resources>
 

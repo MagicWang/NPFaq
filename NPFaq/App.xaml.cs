@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using NPFaq.Models;
+using NPFaq.Views;
 
 namespace NPFaq
 {

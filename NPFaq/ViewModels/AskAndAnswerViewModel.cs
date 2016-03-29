@@ -127,7 +127,7 @@ namespace NPFaq.ViewModels
                 return;
             IsBusy = true;
             q.Question = Question;
-            q.Questioner = App.CurrentUser.UserName;
+            q.Questioner = App.CurrentUser.Name;
             q.CategoryID = SelectedCategory.ID;
             q.KeyWord = KeyWord;
             q.Time = DateTime.Now;
@@ -141,7 +141,7 @@ namespace NPFaq.ViewModels
                 {
                     QuestionID = q.ID,
                     Answer = Answers[i].Answer,
-                    Answerer = App.CurrentUser.UserName,
+                    Answerer = App.CurrentUser.Name,
                     Order = i,
                     Time = DateTime.Now
                 };
@@ -153,7 +153,7 @@ namespace NPFaq.ViewModels
                 {
                     QuestionID = q.ID,
                     Path = Attachs[i].Name,
-                    Answerer = App.CurrentUser.UserName,
+                    Answerer = App.CurrentUser.Name,
                     Type = Common.Utils.ImageHelper.IsImageFile(Attachs[i].Name) ? "Image" : "Other",
                     Time = DateTime.Now
                 };

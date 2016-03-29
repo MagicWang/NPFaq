@@ -5,15 +5,16 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:np="http://schemas.netposa.com/sl/2015/xaml"  
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"         
     xmlns:local="clr-namespace:NPFaq" FontFamily="Microsoft YaHei"         
     mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480">
     <Grid x:Name="LayoutRoot" Style="{StaticResource LayoutRootGridStyle}">
         <Border x:Name="ContentBorder" Style="{StaticResource ContentBorderStyle}">
             <sdk:Frame x:Name="ContentFrame" Style="{StaticResource ContentFrameStyle}" 
-                              Source="/Home" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed" Margin="-1">
+                              Source="" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed" Margin="-1">
                 <sdk:Frame.UriMapper>
                     <sdk:UriMapper>
-                        <sdk:UriMapping Uri="" MappedUri="/Views/Home.xaml"/>
+                        <sdk:UriMapping Uri="" MappedUri="/Views/Login.xaml"/>
                         <sdk:UriMapping Uri="/{pageName}" MappedUri="/Views/{pageName}.xaml"/>
                     </sdk:UriMapper>
                 </sdk:Frame.UriMapper>
@@ -24,23 +25,37 @@
                 <StackPanel x:Name="BrandingStackPanel" Style="{StaticResource BrandingStackPanelStyle}">
                     <ContentControl Style="{StaticResource LogoIcon}"/>
                     <TextBlock x:Name="ApplicationNameTextBlock" Style="{StaticResource ApplicationNameStyle}" 
-                               Text="Psap 常见问题解答"/>
+                               Text="大学生学科竞赛管理系统"/>
                 </StackPanel>
             </Border>
 
             <Border x:Name="LinksBorder" Style="{StaticResource LinksBorderStyle}">
                 <StackPanel x:Name="LinksStackPanel" Style="{StaticResource LinksStackPanelStyle}">
-                    <HyperlinkButton x:Name="Link1" Style="{StaticResource LinkStyle}" 
-                                     NavigateUri="/Home" TargetName="ContentFrame" Content="常见问题"/>
-                    <HyperlinkButton x:Name="Link2" Style="{StaticResource LinkStyle}" Visibility="{Binding Source={np:Static Member=local:App.CurrentUser},Path=IsLogin,Converter={StaticResource BoolToVisibilityInverseConverter}}"
-                                     NavigateUri="/Login" TargetName="ContentFrame" Content="登录"/>
                     <StackPanel Style="{StaticResource LinksStackPanelStyle}" Visibility="{Binding Source={np:Static Member=local:App.CurrentUser},Path=IsLogin,Converter={StaticResource BooleanToVisibilityConverter}}">
-                        <!--<HyperlinkButton x:Name="Link3" Style="{StaticResource LinkStyle}"
-                                     NavigateUri="/Manager" TargetName="ContentFrame" Content="管理"/>-->
-                        <HyperlinkButton Style="{StaticResource LinkStyle}"
-                                     NavigateUri="" TargetName="ContentFrame" Content="{Binding Source={np:Static Member=local:App.CurrentUser},Path=UserName}"/>
-                        <HyperlinkButton x:Name="Link4" Style="{StaticResource LinkStyle}" Click="Link4_Click"
+                        <HyperlinkButton x:Name="Link1" Style="{StaticResource LinkStyle}" 
+                                     NavigateUri="/TeamManager" TargetName="ContentFrame" Content="参赛队伍" Visibility="{Binding Source={np:Static Member=local:App.CurrentUser},Path=IsLogin,Converter={StaticResource FuncVisibleConverter},ConverterParameter=0}"/>
+                        <HyperlinkButton x:Name="Link2" Style="{StaticResource LinkStyle}" 
+                                     NavigateUri="/MatchManager" TargetName="ContentFrame" Content="比赛管理" Visibility="{Binding Source={np:Static Member=local:App.CurrentUser},Path=IsLogin,Converter={StaticResource FuncVisibleConverter},ConverterParameter=1}"/>
+                        <HyperlinkButton x:Name="Link3" Style="{StaticResource LinkStyle}" 
+                                     NavigateUri="/UserManager" TargetName="ContentFrame" Content="用户管理" Visibility="{Binding Source={np:Static Member=local:App.CurrentUser},Path=IsLogin,Converter={StaticResource FuncVisibleConverter},ConverterParameter=2}"/>
+                    </StackPanel>
+                    <HyperlinkButton x:Name="Link4" Style="{StaticResource LinkStyle}" Visibility="{Binding Source={np:Static Member=local:App.CurrentUser},Path=IsLogin,Converter={StaticResource BoolToVisibilityInverseConverter}}"
+                                     NavigateUri="/Login" TargetName="ContentFrame" Content="登录"/>
+                    <StackPanel>
+                        <HyperlinkButton x:Name="Link5" Style="{StaticResource LinkStyle}" Click="Link5_Click"
+                                     NavigateUri="" TargetName="ContentFrame" Content="{Binding Source={np:Static Member=local:App.CurrentUser},Path=Name}"
+                                     Visibility="{Binding Source={np:Static Member=local:App.CurrentUser},Path=IsLogin,Converter={StaticResource BooleanToVisibilityConverter}}">
+                        </HyperlinkButton>
+                        <dx:SLPopup x:Name="popup" StaysOpen="False" Placement="Bottom" PlacementTarget="{Binding ElementName=Link5}">
+                            <StackPanel Background="{StaticResource NavigationBackgroundColorBrush}">
+                                <HyperlinkButton Style="{StaticResource LinkStyle}"
+                                     NavigateUri="/UserDetail" TargetName="ContentFrame" Content="详细信息" Click="Detail_Click"/>
+                                <HyperlinkButton Style="{StaticResource LinkStyle}" Click="AlterPwd_Click"
+                                     NavigateUri="" TargetName="ContentFrame" Content="修改密码"/>
+                                <HyperlinkButton Style="{StaticResource LinkStyle}" Click="Link4_Click"
                                      NavigateUri="" TargetName="ContentFrame" Content="退出"/>
+                            </StackPanel>
+                        </dx:SLPopup>
                     </StackPanel>
                 </StackPanel>
             </Border>

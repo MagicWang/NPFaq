@@ -14,7 +14,7 @@
     <RootNamespace>NPFaq.Web</RootNamespace>
     <AssemblyName>NPFaq.Web</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -42,8 +42,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Library\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -102,6 +102,17 @@
   <ItemGroup>
     <Content Include="ClientBin\NPFaq.xap" />
     <Content Include="Default.aspx" />
+    <Content Include="MatchEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MatchEntities.edmx</DependentUpon>
+      <LastGenOutput>MatchEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="MatchEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MatchEntities.edmx</DependentUpon>
+      <LastGenOutput>MatchEntities.cs</LastGenOutput>
+    </Content>
+    <Content Include="MatchService.svc" />
     <Content Include="Silverlight.js" />
     <Content Include="TestEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -119,6 +130,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="attach.cs">
+      <DependentUpon>MatchEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Extensions\DbSetExtensions.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="faq_answer.cs">
@@ -136,8 +150,34 @@
     <Compile Include="faq_user.cs">
       <DependentUpon>TestEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="IMatchService.cs" />
+    <Compile Include="match.cs">
+      <DependentUpon>MatchEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MatchEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MatchEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MatchEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MatchEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MatchEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MatchEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="MatchService.svc.cs">
+      <DependentUpon>MatchService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MatchAttach.cs" />
     <Compile Include="Models\Attach.cs" />
     <Compile Include="Models\IBaseMode.cs" />
+    <Compile Include="team.cs">
+      <DependentUpon>MatchEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="UploadFileHandler.ashx.cs">
       <DependentUpon>UploadFileHandler.ashx</DependentUpon>
     </Compile>
@@ -161,6 +201,9 @@
     <Compile Include="TestService.svc.cs">
       <DependentUpon>TestService.svc</DependentUpon>
     </Compile>
+    <Compile Include="user.cs">
+      <DependentUpon>MatchEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Utils\ContextHelper.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -172,7 +215,16 @@
       <DependentUpon>TestEntities.edmx</DependentUpon>
     </Content>
     <Content Include="UploadFileHandler.ashx" />
+    <EntityDeploy Include="MatchEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MatchEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="MatchEntities.edmx.diagram">
+      <DependentUpon>MatchEntities.edmx</DependentUpon>
+    </Content>
+    <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\NPFaq.pubxml" />
+    <None Include="Properties\PublishProfiles\publish.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -199,11 +251,10 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>47051</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:11804/</IISUrl>
+          <IISUrl>http://localhost/NPFaq</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl>http://192.168.0.2</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

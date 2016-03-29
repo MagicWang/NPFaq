@@ -1,0 +1,67 @@
+﻿<np:BaseWindow x:Class="NPFaq.Windows.AddMatchWin" 
+          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+          xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+          xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+          xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+          xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+          xmlns:np="http://schemas.netposa.com/sl/2015/xaml"
+          xmlns:vm="clr-namespace:NPFaq.ViewModels"
+          xmlns:local="clr-namespace:NPFaq" Width="550" Height="600"
+          mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="300" Title="新建比赛">
+    <np:BaseWindow.DataContext>
+        <vm:AddMatchViewModel/>
+    </np:BaseWindow.DataContext>
+    <i:Interaction.Triggers>
+        <np:InteractionRequestTrigger SourceObject="{Binding CloseRequest}" Raised="Close_Raised"/>
+    </i:Interaction.Triggers>
+    <Grid x:Name="LayoutRoot">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="60"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" Text="比赛名称："/>
+        <TextBlock Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" Text="比赛级别："/>
+        <TextBlock Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" Text="主办单位："/>
+        <TextBlock Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" Text="地址："/>
+        <TextBlock Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" Text="比赛描述："/>
+        <TextBlock Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" Text="起始时间："/>
+        <TextBlock Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" Text="结束时间："/>
+        <TextBlock Grid.Row="7" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" Text="报名起始时间："/>
+        <TextBlock Grid.Row="8" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" Text="报名结束时间："/>
+        <TextBlock Grid.Row="9" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" Text="附件："/>
+        
+        <TextBox Grid.Row="0" Grid.Column="1" x:Name="matchNameTB" Margin="5" Text="{Binding MatchName,Mode=TwoWay,ValidatesOnDataErrors=True}"/>
+        <TextBox Grid.Row="1" Grid.Column="1" x:Name="levelTB" Margin="5" Text="{Binding Level,Mode=TwoWay,ValidatesOnDataErrors=True}"/>
+        <TextBox Grid.Row="2" Grid.Column="1" x:Name="sponsorTB" Margin="5" Text="{Binding Sponsor,Mode=TwoWay,ValidatesOnDataErrors=True}"/>
+        <TextBox Grid.Row="3" Grid.Column="1" x:Name="addressTB" Margin="5" Text="{Binding Address,Mode=TwoWay,ValidatesOnDataErrors=True}"/>
+        <TextBox Grid.Row="4" Grid.Column="1" x:Name="descTB" Margin="5" Text="{Binding Description,Mode=TwoWay,ValidatesOnDataErrors=True}"/>
+        <dxe:DateEdit Grid.Row="5" Grid.Column="1" x:Name="startTime" Margin="5" DateTime="{Binding StartTime,Mode=TwoWay,ValidatesOnDataErrors=True}"/>
+        <dxe:DateEdit Grid.Row="6" Grid.Column="1" x:Name="endTime" Margin="5" DateTime="{Binding EndTime,Mode=TwoWay,ValidatesOnDataErrors=True}"/>
+        <dxe:DateEdit Grid.Row="7" Grid.Column="1" x:Name="startSign" Margin="5" DateTime="{Binding StartSign,Mode=TwoWay,ValidatesOnDataErrors=True}"/>
+        <dxe:DateEdit Grid.Row="8" Grid.Column="1" x:Name="endSign" Margin="5" DateTime="{Binding EndSign,Mode=TwoWay,ValidatesOnDataErrors=True}"/>
+        <np:UploadControl Grid.Row="9" Grid.Column="1" ItemsSource="{Binding Attachs}" Margin="5"/>
+
+        <StackPanel Grid.Row="10" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,4" Grid.ColumnSpan="2">
+            <Button Content="保存" Margin="10" Width="75" Command="{Binding SubmitCommand}"/>
+            <Button Content="取消" Margin="10" Width="75" Click="Cancel_Click"/>
+        </StackPanel>
+        <toolkit:BusyIndicator IsBusy="{Binding IsBusy}" Grid.RowSpan="10" Grid.ColumnSpan="3" BusyContent="上传文件中" Margin="0,-10,0,10"></toolkit:BusyIndicator>
+    </Grid>
+</np:BaseWindow>

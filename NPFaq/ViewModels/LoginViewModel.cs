@@ -13,6 +13,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.ComponentModel.DataAnnotations;
 using System.Windows.Browser;
+using NPFaq.Enums;
 
 namespace NPFaq.ViewModels
 {
@@ -58,7 +59,7 @@ namespace NPFaq.ViewModels
 
         public static void Login(string userName, string password, bool flag)
         {
-            var client = Utils.ServicesFactory.CreateTestService();
+            var client = Utils.ServicesFactory.CreateMatchService();
             client.LoginCompleted += (s, e) =>
             {
                 if (e.Result)
@@ -68,9 +69,20 @@ namespace NPFaq.ViewModels
                         SaveUser(userName, password);
                     else
                         DeleteUser();
-                    App.CurrentUser.UserName = userName;
-                    App.CurrentUser.IsLogin = true;
-                    new Common.Commands.NavigateCommand().Execute("/Home");
+                    client.GetUserByNameCompleted += (ss, ee) =>
+                    {
+                        App.CurrentUser.Name = userName;
+                        App.CurrentUser.ID = ee.Result.ID;
+                        App.CurrentUser.UserType = ee.Result.UserType;
+                        App.CurrentUser.Tel = ee.Result.Tel;
+                        App.CurrentUser.Info = ee.Result.Info;
+                        App.CurrentUser.IsLogin = true;
+                        if (App.CurrentUser.Role==Role.SuperAdministrator|| App.CurrentUser.Role == Role.Administrator)
+                            new Common.Commands.NavigateCommand().Execute("/MatchManager");
+                        else if (App.CurrentUser.Role == Role.Teacher)
+                            new Common.Commands.NavigateCommand().Execute("/TeamManager");
+                    };
+                    client.GetUserByNameAsync(userName);
                 }
                 else
                     MessageBox.Show("用户名或密码错误");

@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MatchService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost/NPFaq/MatchService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost/NPFaq/MatchService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/NPFaq/MatchService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/NPFaq.Web.Models" />
+      <xsd:import schemaLocation="http://localhost/NPFaq/MatchService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/NPFaq.Web" />
+      <xsd:import schemaLocation="http://localhost/NPFaq/MatchService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMatchService_DoWork_InputMessage">
+    <wsdl:part name="parameters" element="tns:DoWork" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_DoWork_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DoWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_GetAttachsByIDAndType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAttachsByIDAndType" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_GetAttachsByIDAndType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAttachsByIDAndTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_GetAllUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsers" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_GetAllUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_GetUserByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByName" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_GetUserByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_AddOrUpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_AddOrUpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_SearchUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchUser" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_SearchUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_DeleteUserByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserByID" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_DeleteUserByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_AlterPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlterPassword" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_AlterPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlterPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_GetAllMatches_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMatches" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_GetAllMatches_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMatchesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_AddOrUpdateMatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateMatch" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_AddOrUpdateMatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateMatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_SearchMatch_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchMatch" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_SearchMatch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchMatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_DeleteMatchByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMatchByID" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_DeleteMatchByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMatchByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_GetAllTeams_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTeams" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_GetAllTeams_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTeamsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_AddOrUpdateTeam_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateTeam" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_AddOrUpdateTeam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateTeamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_SearchTeam_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchTeam" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_SearchTeam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchTeamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_DeleteTeamByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTeamByID" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_DeleteTeamByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTeamByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_AddAttaches_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAttaches" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_AddAttaches_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAttachesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_DeleteAttachesByMID_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAttachesByMID" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_DeleteAttachesByMID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAttachesByMIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_GetUserByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByID" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_GetUserByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_GetMatchByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMatchByID" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_GetMatchByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMatchByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_ReviewTeam_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReviewTeam" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_ReviewTeam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReviewTeamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_MarkTeam_InputMessage">
+    <wsdl:part name="parameters" element="tns:MarkTeam" />
+  </wsdl:message>
+  <wsdl:message name="IMatchService_MarkTeam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MarkTeamResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMatchService">
+    <wsdl:operation name="DoWork">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/DoWork" message="tns:IMatchService_DoWork_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/DoWorkResponse" message="tns:IMatchService_DoWork_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttachsByIDAndType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/GetAttachsByIDAndType" message="tns:IMatchService_GetAttachsByIDAndType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/GetAttachsByIDAndTypeResponse" message="tns:IMatchService_GetAttachsByIDAndType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/Login" message="tns:IMatchService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/LoginResponse" message="tns:IMatchService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/GetAllUsers" message="tns:IMatchService_GetAllUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/GetAllUsersResponse" message="tns:IMatchService_GetAllUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/GetUserByName" message="tns:IMatchService_GetUserByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/GetUserByNameResponse" message="tns:IMatchService_GetUserByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/AddOrUpdateUser" message="tns:IMatchService_AddOrUpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/AddOrUpdateUserResponse" message="tns:IMatchService_AddOrUpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/SearchUser" message="tns:IMatchService_SearchUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/SearchUserResponse" message="tns:IMatchService_SearchUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/DeleteUserByID" message="tns:IMatchService_DeleteUserByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/DeleteUserByIDResponse" message="tns:IMatchService_DeleteUserByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/AlterPassword" message="tns:IMatchService_AlterPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/AlterPasswordResponse" message="tns:IMatchService_AlterPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMatches">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/GetAllMatches" message="tns:IMatchService_GetAllMatches_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/GetAllMatchesResponse" message="tns:IMatchService_GetAllMatches_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateMatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/AddOrUpdateMatch" message="tns:IMatchService_AddOrUpdateMatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/AddOrUpdateMatchResponse" message="tns:IMatchService_AddOrUpdateMatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchMatch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/SearchMatch" message="tns:IMatchService_SearchMatch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/SearchMatchResponse" message="tns:IMatchService_SearchMatch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMatchByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/DeleteMatchByID" message="tns:IMatchService_DeleteMatchByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/DeleteMatchByIDResponse" message="tns:IMatchService_DeleteMatchByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTeams">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/GetAllTeams" message="tns:IMatchService_GetAllTeams_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/GetAllTeamsResponse" message="tns:IMatchService_GetAllTeams_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateTeam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/AddOrUpdateTeam" message="tns:IMatchService_AddOrUpdateTeam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/AddOrUpdateTeamResponse" message="tns:IMatchService_AddOrUpdateTeam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchTeam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/SearchTeam" message="tns:IMatchService_SearchTeam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/SearchTeamResponse" message="tns:IMatchService_SearchTeam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTeamByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/DeleteTeamByID" message="tns:IMatchService_DeleteTeamByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/DeleteTeamByIDResponse" message="tns:IMatchService_DeleteTeamByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAttaches">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/AddAttaches" message="tns:IMatchService_AddAttaches_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/AddAttachesResponse" message="tns:IMatchService_AddAttaches_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAttachesByMID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/DeleteAttachesByMID" message="tns:IMatchService_DeleteAttachesByMID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/DeleteAttachesByMIDResponse" message="tns:IMatchService_DeleteAttachesByMID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/GetUserByID" message="tns:IMatchService_GetUserByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/GetUserByIDResponse" message="tns:IMatchService_GetUserByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/GetMatchByID" message="tns:IMatchService_GetMatchByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/GetMatchByIDResponse" message="tns:IMatchService_GetMatchByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReviewTeam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/ReviewTeam" message="tns:IMatchService_ReviewTeam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/ReviewTeamResponse" message="tns:IMatchService_ReviewTeam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MarkTeam">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMatchService/MarkTeam" message="tns:IMatchService_MarkTeam_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMatchService/MarkTeamResponse" message="tns:IMatchService_MarkTeam_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IMatchService" type="tns:IMatchService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DoWork">
+      <soap:operation soapAction="http://tempuri.org/IMatchService/DoWork" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttachsByIDAndType">
+      <soap:operation soapAction="http://tempuri.org/IMatchService/GetAttachsByIDAndType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IMatchService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <soap:operation soapAction="http://tempuri.org/IMatchService/GetAllUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByName">
+      <soap:operation soapAction="http://tempuri.org/IMatchService/GetUserByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateUser">
+      <soap:operation soapAction="http://tempuri.org/IMatchService/AddOrUpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchUser">
+      <soap:operation soapAction="http://tempuri.org/IMatchService/SearchUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserByID">
+      <soap:operation soapAction="http://tempuri.org/IMatchService/DeleteUserByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterPassword">
+      <soap:operation soapAction="http://tempuri.org/IMatchService/AlterPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMatches">
+      <soap:operation soapAction="http://tempuri.org/IMatchService/GetAllMatches" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateMatch">
+      <soap:operation soapAction="http://tempuri.org/IMatchService/AddOrUpdateMatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchMatch">
+      <soap:operation soapAction="http://tempuri.org/IMatchService/SearchMatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMatchByID">
+      <soap:operation soapAction="http://tempuri.org/IMatchService/DeleteMatchByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTeams">
+      <soap:operation soapAction="http://tempuri.org/IMatchService/GetAllTeams" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateTeam">
+      <soap:operation soapAction="http://tempuri.org/IMatchService/AddOrUpdateTeam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchTeam">
+      <soap:operation soapAction="http://tempuri.org/IMatchService/SearchTeam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTeamByID">
+      <soap:operation soapAction="http://tempuri.org/IMatchService/DeleteTeamByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAttaches">
+      <soap:operation soapAction="http://tempuri.org/IMatchService/AddAttaches" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAttachesByMID">
+      <soap:operation soapAction="http://tempuri.org/IMatchService/DeleteAttachesByMID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByID">
+      <soap:operation soapAction="http://tempuri.org/IMatchService/GetUserByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMatchByID">
+      <soap:operation soapAction="http://tempuri.org/IMatchService/GetMatchByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReviewTeam">
+      <soap:operation soapAction="http://tempuri.org/IMatchService/ReviewTeam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MarkTeam">
+      <soap:operation soapAction="http://tempuri.org/IMatchService/MarkTeam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MatchService">
+    <wsdl:port name="BasicHttpBinding_IMatchService" binding="tns:BasicHttpBinding_IMatchService">
+      <soap:address location="http://localhost/NPFaq/MatchService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

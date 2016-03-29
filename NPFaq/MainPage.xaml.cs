@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NPFaq.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -53,6 +54,25 @@ namespace NPFaq
             App.CurrentUser.IsLogin = false;
             Common.Utils.CookieHelper.DeleteCookie("user");
             Common.Utils.CookieHelper.DeleteCookie("pwd");
+            new Common.Commands.NavigateCommand().Execute("/Login");
+            popup.IsOpen = false;
+        }
+
+        private void Link5_Click(object sender, RoutedEventArgs e)
+        {
+            popup.IsOpen = true;
+        }
+
+        private void AlterPwd_Click(object sender, RoutedEventArgs e)
+        {
+            AlterPwdWin win = new AlterPwdWin();
+            win.Show();
+            popup.IsOpen = false;
+        }
+
+        private void Detail_Click(object sender, RoutedEventArgs e)
+        {
+            popup.IsOpen = false;
         }
     }
 }

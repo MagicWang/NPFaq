@@ -59,9 +59,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v14.1, Version=14.1.4.5, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Library\Silverlight\DevExpress.Data.v14.1.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Mvvm.v14.1, Version=14.1.4.5, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Library\Silverlight\DevExpress.Mvvm.v14.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Charts.v14.1, Version=14.1.4.5, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Library\Silverlight\DevExpress.Xpf.Charts.v14.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Controls.v14.1, Version=14.1.4.5, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Library\Silverlight\DevExpress.Xpf.Controls.v14.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v14.1, Version=14.1.4.5, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Library\Silverlight\DevExpress.Xpf.Core.v14.1.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="System.ComponentModel.DataAnnotations, Version=5.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL" />
@@ -94,20 +110,43 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\RoleToDescriptionConverter.cs" />
+    <Compile Include="Converters\FuncVisibleConverter.cs" />
     <Compile Include="Converters\BoolToMarginConverter.cs" />
+    <Compile Include="Enums\MatchStatus.cs" />
+    <Compile Include="Enums\Role.cs" />
     <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\WrapTeam.cs" />
+    <Compile Include="Models\WrapMatch.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Service References\MatchServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\TestServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Utils\ServicesFactory.cs" />
+    <Compile Include="ViewModels\AddTeamViewModel.cs" />
+    <Compile Include="ViewModels\AddMatchViewModel.cs" />
+    <Compile Include="ViewModels\AddUserViewModel.cs" />
     <Compile Include="ViewModels\AskAndAnswerViewModel.cs" />
     <Compile Include="ViewModels\CategoryManagerViewModel.cs" />
+    <Compile Include="ViewModels\TeamManagerViewModel.cs" />
+    <Compile Include="ViewModels\MatchManagerViewModel.cs" />
+    <Compile Include="ViewModels\UserManagerViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\ValidationViewModelBase.cs" />
+    <Compile Include="Views\TeamManager.xaml.cs">
+      <DependentUpon>TeamManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserDetail.xaml.cs">
+      <DependentUpon>UserDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CategoryManager.xaml.cs">
       <DependentUpon>CategoryManager.xaml</DependentUpon>
     </Compile>
@@ -124,12 +163,41 @@
     <Compile Include="Views\AskAndAnswer.xaml.cs">
       <DependentUpon>AskAndAnswer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\MatchManager.xaml.cs">
+      <DependentUpon>MatchManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserManager.xaml.cs">
+      <DependentUpon>UserManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddTeamWin.xaml.cs">
+      <DependentUpon>AddTeamWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddMatchWin.xaml.cs">
+      <DependentUpon>AddMatchWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MarkWin.xaml.cs">
+      <DependentUpon>MarkWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AlterPwdWin.xaml.cs">
+      <DependentUpon>AlterPwdWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddUserWin.xaml.cs">
+      <DependentUpon>AddUserWin.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Views\TeamManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserDetail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\CategoryManager.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -139,6 +207,34 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AskAndAnswer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MatchManager.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddTeamWin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\AddMatchWin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\MarkWin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\AlterPwdWin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\AddUserWin.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -157,6 +253,34 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
+    <None Include="Service References\MatchServiceReference\MatchService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchServiceReference\MatchService1.wsdl" />
+    <None Include="Service References\MatchServiceReference\MatchService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchServiceReference\MatchService31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchServiceReference\MatchService32.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchServiceReference\MatchService33.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MatchServiceReference\NPFaq.MatchServiceReference.match.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchServiceReference\NPFaq.MatchServiceReference.MatchAttach.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchServiceReference\NPFaq.MatchServiceReference.team.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MatchServiceReference\NPFaq.MatchServiceReference.user.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\TestServiceReference\NPFaq.TestServiceReference.Attach.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -195,6 +319,16 @@
     <Resource Include="Images\preview.png" />
     <Resource Include="Images\delete1.png" />
     <Resource Include="Images\add.png" />
+    <None Include="Service References\MatchServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\MatchServiceReference\configuration.svcinfo" />
+    <None Include="Service References\MatchServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\MatchServiceReference\MatchService1.disco" />
+    <Resource Include="Images\rate.png" />
+    <Resource Include="Images\review.png" />
+    <Resource Include="Images\upload.png" />
     <Content Include="ServiceReferences.ClientConfig" />
     <None Include="Service References\TestServiceReference\TestService3.xsd">
       <SubType>Designer</SubType>
@@ -207,6 +341,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\MatchServiceReference\" />
     <WCFMetadataStorage Include="Service References\TestServiceReference\" />
   </ItemGroup>
   <ItemGroup>

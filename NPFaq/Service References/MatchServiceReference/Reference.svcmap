@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="42d7b36d-1ba1-45ab-a3b9-72bb1d653172" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/NPFaq/MatchService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MatchService1.disco" MetadataType="Disco" ID="b7ea3fc9-3c23-42c0-acbf-a5785b85ef40" SourceId="1" SourceUrl="http://localhost/NPFaq/MatchService.svc?disco" />
+    <MetadataFile FileName="MatchService3.xsd" MetadataType="Schema" ID="f7cbc617-2acf-4c6c-8114-baa655af76c6" SourceId="1" SourceUrl="http://localhost/NPFaq/MatchService.svc?xsd=xsd2" />
+    <MetadataFile FileName="MatchService.xsd" MetadataType="Schema" ID="072db669-38b6-445f-9a36-1e5fc4203438" SourceId="1" SourceUrl="http://localhost/NPFaq/MatchService.svc?xsd=xsd4" />
+    <MetadataFile FileName="MatchService31.xsd" MetadataType="Schema" ID="a37188dc-5df1-4d20-8b8e-25a0ecaf8435" SourceId="1" SourceUrl="http://localhost/NPFaq/MatchService.svc?xsd=xsd0" />
+    <MetadataFile FileName="MatchService1.wsdl" MetadataType="Wsdl" ID="6e965d2f-7227-404a-9d6f-b0cff51571f4" SourceId="1" SourceUrl="http://localhost/NPFaq/MatchService.svc?wsdl" />
+    <MetadataFile FileName="MatchService32.xsd" MetadataType="Schema" ID="9ef2af71-320b-4f03-be7d-e76e717b38d1" SourceId="1" SourceUrl="http://localhost/NPFaq/MatchService.svc?xsd=xsd3" />
+    <MetadataFile FileName="MatchService33.xsd" MetadataType="Schema" ID="34335eec-b01f-4d8f-aeac-82ccc7604e79" SourceId="1" SourceUrl="http://localhost/NPFaq/MatchService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

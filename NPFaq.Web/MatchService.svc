@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="NPFaq.Web.MatchService" CodeBehind="MatchService.svc.cs" %>

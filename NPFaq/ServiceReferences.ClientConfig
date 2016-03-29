@@ -6,12 +6,19 @@
                     maxReceivedMessageSize="2147483647">
                     <security mode="None" />
                 </binding>
+                <binding name="BasicHttpBinding_IMatchService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
             </basicHttpBinding>
         </bindings>
         <client>
             <endpoint address="../TestService.svc" binding="basicHttpBinding"
                 bindingConfiguration="BasicHttpBinding_ITestService" contract="TestServiceReference.ITestService"
                 name="BasicHttpBinding_ITestService" />
+            <endpoint address="../MatchService.svc" binding="basicHttpBinding"
+                bindingConfiguration="BasicHttpBinding_IMatchService" contract="MatchServiceReference.IMatchService"
+                name="BasicHttpBinding_IMatchService" />
         </client>
     </system.serviceModel>
 </configuration>
